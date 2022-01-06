@@ -8,50 +8,51 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <section class="conteudo">
-      <form action="#"  class="main">
-        <h1 class="main__titulo">Formulário de Cadastro</h1>
+  <div class="conteudo">
+    <form action="/" class="main" id="form">
+      <h1 class="main__titulo">Formulário de Cadastro</h1>
         <div class="campo">
           <label for="nome">
             Nome:
-            <input type="text" id="nome">
+            <input type="text" id="nome" class="input">          
           </label>
         </div>
         <div class="campo">
           <label for="sobrenome">
             Sobrenome:
           </label>
-          <input type="text" id="sobrenome">
+          <input type="text" id="sobrenome" class="input">
         </div>
         <div class="campo">
           <label for="cpf">
             CPF:
           </label>
-          <input type="text" id="cpf">
+          <input type="text" id="cpf" class="input">
         </div>
         <div class="campo">
           <label for="user">
             Usuário:
           </label>
-          <input type="text" id="user">
+          <input type="text" id="user" class="input">
         </div>
         <div class="
-        campo">
+          campo">
           <label for="senha">
             Senha:
           </label>
-          <input type="password" id="senha">
+          <input type="password" id="senha" class="input">
         </div>
         <div class="campo">
           <label for="senha-confirm">
-            Confirmar:
+            Confirmar Senha:
           </label>
-          <input type="password" id="senha-confirm">
-        </div>
-        <input type="submit" value="enviar" class="enviar">
-      </form>
-    </section>
+        <input type="password" id="senha-confirm" class="input">
+      </div>
+      <div>
+        <input type="submit" class="enviar" value="enviar">
+      </div>
+    </form>
   </div>
+  <script src="./main.js"></script>
 </body>
 </html>

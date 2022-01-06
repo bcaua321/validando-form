@@ -2,26 +2,19 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   height: 100vh;
-}
-
-.container {
   width: 100vw;
-  height: 100vh;
 }
 
-.conteudo{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.conteudo {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .main { 
   width: 80%;
-  height: 100%;
   padding: 2rem 0 1.5rem;
-  margin: 2rem 3rem;
-  background-color: #FFF;
+  margin: 0 auto;
   
   display: flex;
   flex-direction: column;
@@ -34,24 +27,21 @@ body {
 }
 
 .campo {
-  width: 80%;
-  margin: 0.5rem;
-}
-
-label {
-  width: 100%;
+  width: 75%;
   display: block;
   margin: 0 auto;
   font-weight: 600;
 }
 
-input{
+.input{
+  box-sizing: border-box;
   display: block;
 
   border-radius: 5px;
   height: 2rem;
   width: 100%;
-  margin: 0.5rem 0;
+  text-indent: 1rem;
+  margin: 0.5rem 0 1.5rem; 
 
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
@@ -64,14 +54,20 @@ input{
   font-size: 0.8rem;
 
   display: block;
-  width: 6rem;
-  height: 5rem;
-  padding: 0.5rem;
-  margin-bottom: 2rem;
+  width: 10rem;
+  height: 2rem;
 
   background-color: rgb(30, 30, 182);
   transition: 500ms;
+  
+  text-align: center;
   text-transform: uppercase;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  font-size: 1rem;
+
+  border-radius: 0.3rem;
 }
 
 .enviar:hover {
