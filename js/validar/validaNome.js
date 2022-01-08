@@ -1,3 +1,4 @@
+import { criaErro } from "./erro.js";
 export class ValidaNome {
   constructor(){
     this.nome = document.querySelector("#nome");
@@ -5,13 +6,14 @@ export class ValidaNome {
   }
 
   validaCaracters(){
-    let myRegex = /\d+/g;
+    let myRegex = /\d+/g; // Verifica se há números no nome
     let nomeCompleto = this.nome.value + ' ' + this.sobrenome.value;
 
     if(!myRegex.exec(nomeCompleto)){
       return true;
     } 
     
-    return false;
+    criaErro(this.nome, 'Nome inválido');
+    criaErro(this.sobrenome, 'Sobrenome inválido');
   }
 }

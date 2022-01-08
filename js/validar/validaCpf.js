@@ -1,3 +1,5 @@
+import { criaErro } from "./erro.js";
+
 export class ValidaCpf{
   constructor(){
     this.cpf = document.querySelector("#cpf");
@@ -8,11 +10,9 @@ export class ValidaCpf{
     let cpfString = a.replace(/(\D)+/g, '')
     let cpfLimpo = Array.from(cpfString);
 
-    if(this.verificaCpf(cpfLimpo)){
-      return this.validaPrimeiroDigito(cpfLimpo) && this.validaSegundoDigito(cpfLimpo);
-    }
-
-    return false;
+    this.verificaCpf(cpfLimpo);
+    this.validaPrimeiroDigito(cpfLimpo);
+    this.validaSegundoDigito(cpfLimpo)
   }
   
   // CPF do tipo 111.111.111-11 vai passar no algoritmo, mas não existe.
@@ -22,7 +22,7 @@ export class ValidaCpf{
     let cpfDigitoRepetido = digito.repeat(11);
 
     if(cpf === cpfDigitoRepetido){
-      return false;
+      return criaErro(this.cpf, 'CPF Inválido');
     }
 
     return true;
@@ -46,7 +46,7 @@ export class ValidaCpf{
       return true;
     }
 
-    return false;
+    return criaErro(this.cpf, 'CPF Inválido');
   }
 
 
@@ -65,6 +65,6 @@ export class ValidaCpf{
       return true;
     }
 
-    return false;
+    return criaErro(this.cpf, 'CPF Inválido');
   }
 }

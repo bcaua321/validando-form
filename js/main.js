@@ -2,6 +2,7 @@ import { ValidaNome } from "./validar/validaNome.js";
 import { ValidaCpf } from "./validar/validaCpf.js";
 import { ValidaUsuario } from "./validar/validaUsuario.js";
 import { ValidaSenha } from "./validar/validaSenha.js";
+import { criaErro } from "./validar/erro.js";
 
 // Nome precisa conter somente letras
 // Validar o CPF
@@ -28,26 +29,21 @@ class ValidaFormulario{
     const senha = new ValidaSenha();
 
     this.verificaInputsVazios();
-    // console.log("Nome: " + nome.validaCaracters());
-    // console.log("CPF validado: " + cpf.validaCpf());
-    // console.log("Usuário validado: " + user.verificaCaracters());
-    // console.log("Valida Senha: " + senha.validaSenha());
+    nome.validaCaracters();
+    cpf.validaCpf();
+    user.verificaCaracters();
+    senha.validaSenha();
   }
 
   verificaInputsVazios(){
     for (let campo of this.formulario.querySelectorAll('.dados')){
       if(!campo.value){
-        this.criaErro(campo, `O campo ${campo.placeholder} está vazio`);
+        criaErro(campo, `O campo ${campo.placeholder} está vazio`);
       } 
     }
   }
 
-  criaErro(campo, msg){
-    const div = document.createElement('div');
-    div.innerHTML = msg;
-    div.classList.add('erro-text');
-    campo.insertAdjacentElement('afterend', div);
-  }
+  
 }
 
 const valida = new ValidaFormulario();
