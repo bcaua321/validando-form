@@ -12,6 +12,10 @@ export class ValidaSenha {
       return criaErro(this.senha, "As senhas não correspondem")
     }
 
-    return criaErro(this.senha, "As senhas devem conter [6 a 12] caracteres.");
+    if(this.senha.value.length < 6 || this.senha.value.length > 12){
+      return criaErro(this.senha, "As senhas devem conter [6 a 12] caracteres.");
+    }
+
+    return true;
   }
 }

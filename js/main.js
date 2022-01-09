@@ -22,23 +22,36 @@ class ValidaFormulario{
 
   handleSubmit(e){
     e.preventDefault();
-    const cpf = new ValidaCpf();
-    const user = new ValidaUsuario();
-    const senha = new ValidaSenha();
-
-    this.removeErros();
-    this.verificaInputsVazios();
-    cpf.validaCpf();
-    user.verificaCaracters();
-    senha.validaSenha();
+  
+    const campos = this.validaCampos();
+    const senhas = this.validaSenhas();
+    
+    if(campos && senhas){
+      this.formulario.submit();
+    }
   }
-
+  
   verificaInputsVazios(){
     for (let campo of this.formulario.querySelectorAll('.dados')){
       if(!campo.value){
         criaErro(campo, `O campo ${campo.placeholder} está vazio`);
       } 
     }
+  }
+  
+  validaCampos(){
+    this.removeErros();
+    this.verificaInputsVazios();
+    const cpf = new ValidaCpf();
+    const user = new ValidaUsuario();
+    
+    return cpf.validaCpf() && user.verificaCaracters();
+  }
+  
+  
+  validaSenhas(){
+    const senha = new ValidaSenha();
+    return senha.validaSenha();
   }
 
   removeErros(){
