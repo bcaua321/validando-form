@@ -1,4 +1,4 @@
-import { criaErro } from "./erro.js";
+import { criaErro } from "./criaErro.js";
 export class ValidaSenha {
   constructor (){
     this.senha = document.querySelector("#senha");
@@ -6,14 +6,12 @@ export class ValidaSenha {
   }
 
   validaSenha(){
-    if(this.senha.value < 6 || this.senha.value > 12){
-      return criaErro(this.senha, 'Senha deve conter entre [6, 12] caracteres');
+    if(!this.senha) return;
+
+    if(this.senha.value !== this.senhaConfirm.value) {
+      return criaErro(this.senha, "As senhas não correspondem")
     }
 
-    if(this.senha.value === this.senhaConfirm.value){
-      return true;
-    }
-
-    return criaErro(this.senha, 'Senhas Inválidas');
+    return criaErro(this.senha, "As senhas devem conter [6 a 12] caracteres.");
   }
 }

@@ -1,4 +1,4 @@
-import { criaErro } from "./erro.js";
+import { criaErro } from "./criaErro.js";
 
 export class ValidaCpf{
   constructor(){
@@ -6,10 +6,10 @@ export class ValidaCpf{
   }
 
   validaCpf(){
+    if(!this.cpf.value) return;
     let a = this.cpf.value;
     let cpfString = a.replace(/(\D)+/g, '')
     let cpfLimpo = Array.from(cpfString);
-
     this.verificaCpf(cpfLimpo);
     this.validaPrimeiroDigito(cpfLimpo);
     this.validaSegundoDigito(cpfLimpo)
@@ -24,14 +24,11 @@ export class ValidaCpf{
     if(cpf === cpfDigitoRepetido){
       return criaErro(this.cpf, 'CPF Inválido');
     }
-
-    return true;
   }
 
   // 0*10 + 4*9 + 8*8 + 4*7 + 3*6 + 1*5 + 4*4 + 3*3 + 2*2
   validaPrimeiroDigito(cpfArray){
     let j = 10, acc = 0, result;
-    
 
     for(let i = 0; i < cpfArray.length - 2; i++){
       acc += Number(cpfArray[i])*j;

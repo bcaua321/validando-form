@@ -1,8 +1,7 @@
-import { ValidaNome } from "./validar/validaNome.js";
 import { ValidaCpf } from "./validar/validaCpf.js";
 import { ValidaUsuario } from "./validar/validaUsuario.js";
 import { ValidaSenha } from "./validar/validaSenha.js";
-import { criaErro } from "./validar/erro.js";
+import { criaErro } from "./validar/criaErro.js";
 
 // Nome precisa conter somente letras
 // Validar o CPF
@@ -23,14 +22,12 @@ class ValidaFormulario{
 
   handleSubmit(e){
     e.preventDefault();
-    const nome = new ValidaNome();
     const cpf = new ValidaCpf();
     const user = new ValidaUsuario();
     const senha = new ValidaSenha();
 
     this.removeErros();
     this.verificaInputsVazios();
-    nome.validaCaracters();
     cpf.validaCpf();
     user.verificaCaracters();
     senha.validaSenha();

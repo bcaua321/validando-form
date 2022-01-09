@@ -1,4 +1,4 @@
-import { criaErro } from "./erro.js";
+import { criaErro } from "./criaErro.js";
 
 export class ValidaUsuario {
   constructor(){
@@ -18,6 +18,6 @@ export class ValidaUsuario {
       return true;
     }
 
-    return criaErro(this.usuario, 'Usuário inválido');
+    return criaErro(this.usuario, 'Usuário inválido, deve conter somente letras e números.');
   }
 }
