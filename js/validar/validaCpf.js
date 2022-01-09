@@ -11,8 +11,8 @@ export class ValidaCpf{
     let cpfString = a.replace(/(\D)+/g, '')
     let cpfLimpo = Array.from(cpfString);
     this.verificaCpf(cpfLimpo);
-    this.validaPrimeiroDigito(cpfLimpo);
-    this.validaSegundoDigito(cpfLimpo)
+    
+    return this.validaSegundoDigito(cpfLimpo) && this.validaPrimeiroDigito(cpfLimpo);
   }
   
   // CPF do tipo 111.111.111-11 vai passar no algoritmo, mas não existe.

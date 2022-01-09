@@ -13,11 +13,9 @@ export class ValidaUsuario {
     } 
 
     let myRegex = /[^a-zA-Z0-9]+/g; // Procura qualquer caracter Especial
-
     if(!myRegex.exec(caracters)){
       return true;
     }
-
     return criaErro(this.usuario, 'Usuário inválido, deve conter somente letras e números.');
   }
 }
