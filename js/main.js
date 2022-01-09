@@ -28,6 +28,7 @@ class ValidaFormulario{
     const user = new ValidaUsuario();
     const senha = new ValidaSenha();
 
+    this.removeErros();
     this.verificaInputsVazios();
     nome.validaCaracters();
     cpf.validaCpf();
@@ -43,7 +44,11 @@ class ValidaFormulario{
     }
   }
 
-  
+  removeErros(){
+    for (let erroText of this.formulario.querySelectorAll('.erro-text')){
+      erroText.remove();
+    }
+  }
 }
 
 const valida = new ValidaFormulario();
